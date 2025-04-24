@@ -38,4 +38,20 @@ router.get('/:id', async (req, res) => {
     }
   });
   
+// Actualizar estado
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const { status } = req.body;
+    try {
+      const result = await pool.query(
+        'UPDATE incidents SET status = $1 WHERE id = $2 RETURNING *',
+        [status, id]
+      );
+      if (result.rows.length === 0) return res.status(404).json({ error: 'Incidente no encontrado' });
+      res.json(result.rows[0]);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+  });
+  
 module.exports = router;
