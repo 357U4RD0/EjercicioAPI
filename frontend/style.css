@@ -1,25 +1,101 @@
 body {
-    font-family: Arial, sans-serif;
-    padding: 2em;
-    background-color: #f2f2f2;
-    text-align: center;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    color: #333;
   }
-  button {
-    margin: 0.5em;
-    padding: 0.7em 1.5em;
-    border: none;
-    background-color: #007bff;
+  
+  header {
+    background-color: #1976d2;
     color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.2em;
+    font-weight: 600;
+  }
+  
+  #menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    gap: 15px;
+    background-color: #e3f2fd;
+  }
+  
+  #menu button {
+    padding: 12px 20px;
+    background-color: #42a5f5;
+    color: white;
+    border: none;
+    border-radius: 12px;
     cursor: pointer;
-    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
-  button:hover {
-    background-color: #0056b3;
+  
+  #menu button:hover {
+    background-color: #1e88e5;
+    transform: translateY(-2px);
   }
+  
   #contenido {
-    margin-top: 2em;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
   }
-  input, select {
-    margin: 0.5em;
-    padding: 0.5em;
+  
+  input, select, button {
+    font-family: 'Poppins', sans-serif;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 500px;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
   }
+  
+  button {
+    background-color: #4fc3f7;
+    color: white;
+    font-weight: 600;
+    border: none;
+  }
+  
+  button:hover {
+    background-color: #039be5;
+  }
+  
+  .incidente {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s;
+  }
+  
+  .incidente:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .incidente h3 {
+    margin-top: 0;
+    font-size: 1.3em;
+    color: #1976d2;
+  }
+  
+  .incidente p {
+    margin: 5px 0;
+    font-size: 0.95em;
+    color: #444;
+  }  

@@ -2,21 +2,26 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Gestión de Incidentes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gestor de Incidentes</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <h1>Gestión de Incidentes 🚨</h1>
-    <div class="menu">
-      <button onclick="getAllIncidents()">Ver todos</button>
-      <button onclick="mostrarFormularioCrear()">Crear</button>
-      <button onclick="mostrarBuscarPorId()">Buscar por ID</button>
-      <button onclick="mostrarFormularioActualizar()">Actualizar</button>
-      <button onclick="mostrarFormularioEliminar()">Eliminar</button>
-    </div>
-    <div id="contenido" class="card-container"></div>
+  <header>
+    <h1>Gestor de Incidentes</h1>
+  </header>
+
+  <div id="menu">
+    <button onclick="getAllIncidents()">Ver todos</button>
+    <button onclick="mostrarFormularioCrear()">Crear</button>
+    <button onclick="mostrarFormularioBuscar()">Buscar por ID</button>
+    <button onclick="mostrarFormularioActualizar()">Actualizar estado</button>
+    <button onclick="mostrarFormularioEliminar()">Eliminar</button>
   </div>
+
+  <div id="contenido"></div>
+
   <script src="script.js"></script>
 </body>
 </html>

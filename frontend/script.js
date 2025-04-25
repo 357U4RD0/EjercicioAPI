@@ -22,7 +22,11 @@ function mostrarFormularioCrear() {
     <h2>Crear incidente</h2>
     <input type="text" id="titulo" placeholder="Título"><br>
     <input type="text" id="descripcion" placeholder="Descripción"><br>
-    <input type="text" id="estado" placeholder="Estado"><br>
+    <label for="Estado">Estado:</label>
+    <select id="Estado">
+      <option value="pendiente">Pendiente</option>
+      <option value="en progreso">En progreso</option>
+      <option value="resuelto">Resuelto</option>
     <button onclick="crearIncidente()">Enviar</button>
   `;
 }
@@ -117,3 +121,43 @@ async function eliminarIncidente() {
     console.error('Error al eliminar incidente:', error);
   }
 }
+
+function mostrarFormularioBuscar() {
+    const contenido = document.getElementById('contenido');
+    contenido.innerHTML = `
+      <h2>Buscar incidente por ID</h2>
+      <input type="number" id="buscarId" placeholder="ID del incidente">
+      <button onclick="buscarPorId()">Buscar</button>
+      <div id="resultadoBuscar"></div>
+    `;
+  }
+  
+  async function buscarPorId() {
+    const id = document.getElementById('buscarId').value;
+    const resultado = document.getElementById('resultadoBuscar');
+  
+    if (!id) {
+      resultado.innerHTML = `<p style="color: red;">Ingresa un ID válido</p>`;
+      return;
+    }
+  
+    try {
+      const response = await fetch(`http://localhost:3000/incidents/${id}`);
+      if (!response.ok) {
+        resultado.innerHTML = `<p style="color: red;">Incidente no encontrado</p>`;
+        return;
+      }
+  
+      const data = await response.json();
+      resultado.innerHTML = `
+        <div class="incidente">
+          <h3>${data.title}</h3>
+          <p><strong>Descripción:</strong> ${data.description}</p>
+          <p><strong>Estado:</strong> ${data.status}</p>
+        </div>
+      `;
+    } catch (error) {
+      console.error("Error al buscar incidente:", error);
+      resultado.innerHTML = `<p style="color: red;">Error al conectar con la API</p>`;
+    }
+  }  
