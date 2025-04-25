@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Incidentes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Gestión de Incidentes 🚨</h1>
+    <div class="menu">
+      <button onclick="getAllIncidents()">Ver todos</button>
+      <button onclick="mostrarFormularioCrear()">Crear</button>
+      <button onclick="mostrarBuscarPorId()">Buscar por ID</button>
+      <button onclick="mostrarFormularioActualizar()">Actualizar</button>
+      <button onclick="mostrarFormularioEliminar()">Eliminar</button>
+    </div>
+    <div id="contenido" class="card-container"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
