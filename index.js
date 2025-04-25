@@ -1,10 +1,21 @@
 const express = require('express');
+const cors = require('cors');
+const path = require('path');
 const app = express();
+
+const pool = require('./db');
+const incidentsRouter = require('./routes/incidents');
+
+app.use(cors());
 app.use(express.json());
 
-const incidentsRoutes = require('./routes/incidents');
-app.use('/incidents', incidentsRoutes);
+// Servir archivos estáticos del frontend
+app.use(express.static(path.join(__dirname, 'frontend')));
 
-app.listen(3000, () => {
-  console.log('Servidor corriendo en http://localhost:3000');
+// Rutas API
+app.use('/incidents', incidentsRouter);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en puerto ${PORT}`);
 });
